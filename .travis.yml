@@ -7,6 +7,9 @@ install:
 - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
 - testspace config url http://${TESTSPACE_ACCESS_TOKEN}:@robert.stridespace.com
   
-script: ./memusg -o ./rsspeak.txt sleep 2
+script: 
+- ./memusg -o ./rsspeak.txt sleep 2
+ - grep -i -w 'rsspeak:' ./rsspeak.txt | sed -r 's/.*(\s+[0-9]*\.+[0-9]+).*/\1/g'
 
-after_script: testspace /rsspeak.txt
+after_script: 
+- testspace /rsspeak.txt
