@@ -3,8 +3,8 @@ python:
   - '3.5'
   
 install:
-- mkdir -p $HOME/bin 
-  - export PATH=$HOME/bin:$PATH 
-  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+- mkdir -p $HOME/bin
+- curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
+- testspace config url http://${TESTSPACE_ACCESS_TOKEN}:@open.stridespace.com
   
 script: ./memusg sleep 2
