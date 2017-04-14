@@ -12,5 +12,5 @@ script:
 
 after_script: 
 - cat rsspeak.txt
-- grep -i -w 'rsspeak:' ./rsspeak.txt | sed -r 's/([^0-9]+)//g' > rsspeak.cvs
-- testspace rsspeak.txt{rsspeak.cvs}
+- grep -i -w 'rsspeak:' ./rsspeak.txt | sed -r 's/([^0-9]+)//g' > rsspeak.csv
+- testspace rsspeak.txt{rsspeak.csv}
