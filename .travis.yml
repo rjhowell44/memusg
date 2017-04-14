@@ -7,4 +7,4 @@ install:
 - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
 - testspace config url http://${TESTSPACE_ACCESS_TOKEN}:@open.stridespace.com
   
-script: ./memusg -o sleep 2
+script: ./memusg -o rsspeak.txt sleep 2
