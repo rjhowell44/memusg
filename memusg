@@ -31,10 +31,10 @@ def log(msg):
     if DEBUG:
         print >>sys.stderr, "memusg: {}".format(msg)
 
-def get_vsize(sid):
-    vsize = 0
-    # Example: /bin/ps -o vsize= --sid 23928
-    proc = Popen(['ps', '-o', 'vsize=', '--sid', str(sid)], stdout=PIPE, stderr=None, shell=False)
+def get_rssize(sid):
+    rssize = 0
+    # Example: /bin/ps -o rssize= --sid 23928
+    proc = Popen(['ps', '-o', 'rssize=', '--sid', str(sid)], stdout=PIPE, stderr=None, shell=False)
     (stdout, _stderr) = proc.communicate()
     # Iterate over each process within the process tree of our process session
     # (this ensures that we include processes launched by a child bash script, etc.)
@@ -71,7 +71,7 @@ if fork_pid == 0:
 
     vmpeak = -1
     while proc.returncode == None:
-        vmpeak = max(get_vsize(sid), vmpeak)
+        vmpeak = max(get_rssize(sid), vmpeak)
         log("Waiting for child to exit. vmpeak={}".format(vmpeak))
         proc.poll()
         sleep(0.1) # Time in seconds (float)
