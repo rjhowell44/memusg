@@ -9,7 +9,7 @@ install:
   
 script: 
 - ./memusg -o ./rsspeak.txt sleep 2
- - grep -i -w 'rsspeak:' ./rsspeak.txt | sed -r 's/.*(\s+[0-9]*\.+[0-9]+).*/\1/g'
 
 after_script: 
+- grep -i -w 'rsspeak:' ./rsspeak.txt | sed -r 's/.*(\s+[0-9]*\.+[0-9]+).*/\1/g'
 - testspace /rsspeak.txt
