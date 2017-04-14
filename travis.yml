@@ -1,0 +1,10 @@
+language: python
+python:
+  - '3.5'
+  
+install:
+- mkdir -p $HOME/bin 
+  - export PATH=$HOME/bin:$PATH 
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+  
+script: ./memusg sleep 2
