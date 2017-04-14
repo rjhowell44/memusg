@@ -39,8 +39,8 @@ def get_rssize(sid):
     # Iterate over each process within the process tree of our process session
     # (this ensures that we include processes launched by a child bash script, etc.)
     for line in stdout.split():
-        vsize += int(line.strip())
-    return vsize
+        rssize += int(line.strip())
+    return rssize
 
 # Create a new process session for this process so that we can
 # easily calculate the memory usage of the whole process tree using ps
