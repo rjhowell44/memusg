@@ -69,14 +69,14 @@ if fork_pid == 0:
     # "None" means "inherit from parent"
     proc = Popen(child_command, stdin=None, stdout=None, stderr=None, env=None, shell=True)
 
-    vsspeak = -1
+    rsspeak = -1
     while proc.returncode == None:
-        vsspeak = max(get_rssize(sid), vsspeak)
-        log("Waiting for child to exit. vsspeak={}".format(vsspeak))
+        rsspeak = max(get_rssize(sid), rsspeak)
+        log("Waiting for child to exit. rsspeak={}".format(rsspeak))
         proc.poll()
         sleep(0.1) # Time in seconds (float)
     
-    out.write("memusg: vsspeak: {} kb\n".format(vsspeak))
+    out.write("memusg: rsspeak: {} kb\n".format(rsspeak))
 
     status = proc.returncode
     log("Child process returned {}".format(status))
